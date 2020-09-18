@@ -1,12 +1,16 @@
-# cadastro_usu-rio_flask
-  pip3 install virtualenv
+# cadastro_usuario_cliente_python3_flask
+  A aplicação em questão está sendo desenvolvida para realzar cadastro de clientes.
+  Consulta e dados com o CEP
+# Requisitos:
+  Python3:
+  Pip3:
+# Para instalar as dependências rode os seguintes comandos:
+pip3 install virtualenv
+virtualenv ambvir --python=python3.8 
 
- virtualenv ambvir --python=python3.8 
+source ambvir/bin/activate  (ATIVANDO O VIRTUALENV NO LINUX. CASO ESTEJA UTILIZANDO OUTRO SISTEMA OPERACIONAL VERIFIQUE QUAL COMANDO ADEQUADO)
 
- source ambvir/bin/activate  
+pip3 install -r requirements.txt
 
- pip3 install Flask
-
- pip3 install Flask-Restful
-
----Consumo API Viacep-----
+# Para rodar o projeto:
+python3 app.py
