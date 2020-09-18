@@ -1,6 +1,6 @@
 # cadastro_usuario_cliente_python3_flask
   A aplicação em questão está sendo desenvolvida para realzar cadastro de clientes.
-  Consulta e dados com o CEP
+  Consulta e dados com o CEP e dados salvos no sqlAlchemy
 # Requisitos:
   Python3:
   Pip3:
