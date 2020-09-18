@@ -35,7 +35,7 @@ class Cliente(Resource):
 
         return {}
 
-    def put(self, id):
+    def post(self, id):
         cliente_data = Clientes.parser.parse_args()
         clienteBd = ClienteModel.query.filter_by(id=id).first()
         if clienteBd:
