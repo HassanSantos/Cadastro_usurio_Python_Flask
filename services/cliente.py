@@ -1,6 +1,7 @@
 from flask_restful import Resource, reqparse
 from models.cliente import Cliente as ClienteModel
 import requests
+from flask import jsonify
 
 
 class Clientes(Resource):
@@ -24,6 +25,11 @@ class Clientes(Resource):
         cliente_model = ClienteModel(cliente_data)
         ClienteModel.create(cliente_model)
         return cliente_data, 201
+
+    def get(self):
+        cliente = ClienteModel.query.filter_by(
+            ).all()
+        return jsonify([i.serialize for i in cliente])
 
 
 class Cliente(Resource):
