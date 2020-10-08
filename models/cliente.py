@@ -7,14 +7,14 @@ class Cliente(db.Model):
     __tablename__ = "cliente"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    cpf = db.Column(db.Integer, nullable=False)
+    cpf = db.Column(db.String(55), nullable=False)
     nome = db.Column(db.String(55), nullable=False)
     cep = db.Column(db.String(55), nullable=True)
     rua = db.Column(db.String(55), nullable=True)    
     bairro = db.Column(db.String(55), nullable=True)
     cidade = db.Column(db.String(55), nullable=True)
     uf = db.Column(db.String(55), nullable=True)
-    telefone = db.Column(db.Integer, nullable=False)
+    telefone = db.Column(db.String(55), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False)
     ativo = db.Column(db.Boolean, nullable=False, default=True)
 

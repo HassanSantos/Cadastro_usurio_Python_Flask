@@ -6,9 +6,9 @@ from flask import jsonify
 
 class Clientes(Resource):
     parser = reqparse.RequestParser()
-    parser.add_argument('cpf', type=int, required=False)
+    parser.add_argument('cpf', type=str, required=False)
     parser.add_argument('nome', type=str, required=False)
-    parser.add_argument('telefone', type=int, required=False)
+    parser.add_argument('telefone', type=str, required=False)
     parser.add_argument('cep', type=str, required=False)
 
     def post(self):
