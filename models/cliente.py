@@ -36,6 +36,13 @@ class Cliente(db.Model):
         db.session.add(cliente)
         db.session.commit()
 
+    def delete_cliente(self):
+        db.session.delete(self)
+        db.session.commit()
+    
+    def find_cliente(self, id):
+        return self.query.filter_by(id=id).first()
+
     @property
     def serialize(self):
         return {

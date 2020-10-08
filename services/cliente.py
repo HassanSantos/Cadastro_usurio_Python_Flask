@@ -41,17 +41,31 @@ class Cliente(Resource):
 
         return {}
 
-    def post(self, id):
+    
+    def put(self, id):
         cliente_data = Clientes.parser.parse_args()
+        cep_input = cliente_data['cep']
+        request = requests.get('https://viacep.com.br/ws/{}/json/'.format(
+            cep_input))
+        address_data = request.json() 
         clienteBd = ClienteModel.query.filter_by(id=id).first()
         if clienteBd:
+            cliente_data['cep'] = address_data['cep']
+            cliente_data['rua'] = address_data['logradouro']
+            cliente_data['bairro'] = address_data['bairro']
+            cliente_data['cidade'] = address_data['localidade']
+            cliente_data['uf'] = address_data['uf']
             clienteBd.nome = cliente_data['nome']
             clienteBd.cpf = cliente_data['cpf']
             clienteBd.telefone = cliente_data['telefone']
-            clienteBd.endereco = cliente_data['endereco']
-            clienteBd.ativo = cliente_data['ativo']
             clienteBd.create(clienteBd)
             return clienteBd.serialize, 202
         else:
-            print("ERRO")
-            # TODO validar erro
+            print("erro")
+    
+    def delete(self, id):
+        cliente = ClienteModel.query.filter_by(id=id).first()
+        if cliente:
+            cliente.delete_cliente()
+            return ("cliente deletado")
+        return ("Cliente not faund"), 404
